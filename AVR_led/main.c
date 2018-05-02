@@ -16,8 +16,17 @@ int main(void)
 	
     while (1) 
     {
-		PORTD = 0xff;
+		for (int i =0; i<7; i++)
+		{
+		PORTD = ~(0x01<< i);
 		_delay_ms(300);
+		}
+		for (int i =0; i<7; i++)
+		{
+			PORTD = ~(0x80>> i);
+			_delay_ms(300);
+		}
+		
 		PORTD = 0x00;
 		_delay_ms(300);
     }
